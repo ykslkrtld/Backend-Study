@@ -52,6 +52,13 @@ const UserSchema = new Schema({
             (email) => (email.includes('@') && email.includes('.')),
             'Email type is incorrect'
         ]
+        // validate: (email) => { // Eğer return=true ise kaydeder.
+        //     if (email.includes('@') && email.includes('.')) {
+        //         return true
+        //     } else {
+        //         throw new Error('Email type is incorrect: ' + email)
+        //     }
+        // }
 
     },
 
@@ -81,7 +88,7 @@ const UserSchema = new Schema({
         //     }
         // },
         set: (password) => (password.length >= 8 ?  passwordEncrypt(password) : 'wrong'),
-        validate: (password) => (password != 'wrong') // Güncelleme yaparken default olarak validate çalışmaz. // { runValidators: true }
+        validate: (password) => (password != 'wrong') // Güncelleme yaparken default olarak validate çalışmaz. // { runValidators: true } controllerdaki update isteği attığımız yerde 3. parametre olarak eklenir
     },
 
     firstName: String,
