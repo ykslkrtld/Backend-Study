@@ -84,58 +84,53 @@ module.exports.blogPost = {
   list: async (req, res) => {
     console.log(req.query);
 
-    // SEARCHING & SORTING & PAGINATION
+    // // SEARCHING & SORTING & PAGINATION
 
-    // FILTERING:
-    // URL?filter[fieldName1]=value1&filter[fieldName2]=value2
-    const filter = req.query?.filter || {}
-    // console.log(filter)
-
-
-
-    // SEARCHING:
-    // URL?search[fieldName1]=value1&search[fieldName2]=value2
-    const search = req.query?.search || {}
-    console.log(search)
-    for(let key in search)
-      search[key] = { $regex: search[key] }
-    console.log(search)
-    // filter searchden performans olarak daha iyi mümkün oldukça search yerine onu kullanmak gerek -- search stringlerde işe yarıyor sadece regexten dolayı ama onda bile mümkünse filter kullanılmalı --- mesela published boolean olduğundan veya regex kullanılamadığından search kullanılamaz
+    // // FILTERING:
+    // // URL?filter[fieldName1]=value1&filter[fieldName2]=value2
+    // const filter = req.query?.filter || {}
+    // // console.log(filter)
 
 
 
-    // SORTING:
-    // URL?sort[fieldName1]=+1&sort[fieldName2]=-1 // Mongoose 8.0 den itibaren deprecated oldu
-    // URL?sort[fieldName1]=asc&sort[fieldName2]=desc
-    const sort = req.query?.sort || {}
-    console.log(sort)
+    // // SEARCHING:
+    // // URL?search[fieldName1]=value1&search[fieldName2]=value2
+    // const search = req.query?.search || {}
+    // console.log(search)
+    // for(let key in search)
+    //   search[key] = { $regex: search[key] }
+    // console.log(search)
+    // // filter searchden performans olarak daha iyi mümkün oldukça search yerine onu kullanmak gerek -- search stringlerde işe yarıyor sadece regexten dolayı ama onda bile mümkünse filter kullanılmalı --- mesela published boolean olduğundan veya regex kullanılamadığından search kullanılamaz
 
 
 
-
-    // Pagination
-    // URL?page=3&limit=15
-    // Limit = page size
-    let limit = Number(req.query?.limit)
-    limit = limit > 0 ? limit : Number(process.env?.PAGE_SIZE || 20)
-    console.log(limit, typeof limit)
-    // Page
-    let page = Number(req.query?.page)
-    page = page > 0 ? page : 1
-    // Skip
-    let skip =Number(req.query?.skip)
-    skip = skip > 0 ? skip : ((page-1) * limit)
-
-
-
-    const data = await BlogPost.find({...filter, ...search}).skip(skip).sort(sort).limit(limit);
+    // // SORTING:
+    // // URL?sort[fieldName1]=+1&sort[fieldName2]=-1 // Mongoose 8.0 den itibaren deprecated oldu
+    // // URL?sort[fieldName1]=asc&sort[fieldName2]=desc
+    // const sort = req.query?.sort || {}
+    // console.log(sort)
 
 
 
 
-    // const data = await BlogPost.find()
-    // const data = await BlogPost.find({}, {categoryId: 1, title:1, content:1, _id:0})
-    // const data = await BlogPost.find().populate("categoryId"); // populate ile foreignKeyin datasında olanları da getirebiliriz
+    // // Pagination
+    // // URL?page=3&limit=15
+    // // Limit = page size
+    // let limit = Number(req.query?.limit)
+    // limit = limit > 0 ? limit : Number(process.env?.PAGE_SIZE || 20)
+    // console.log(limit, typeof limit)
+    // // Page
+    // let page = Number(req.query?.page)
+    // page = page > 0 ? page : 1
+    // // Skip
+    // let skip =Number(req.query?.skip)
+    // skip = skip > 0 ? skip : ((page-1) * limit)
+
+
+    // // Run
+    // // const data = await BlogPost.find({...filter, ...search}).skip(skip).sort(sort).limit(limit);
+    // const data = await BlogPost.find({...filter, ...search}).skip(skip).sort(sort).limit(limit).populate('categoryId');
+
 
     res.status(200).send({
       error: false,
