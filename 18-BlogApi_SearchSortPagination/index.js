@@ -44,6 +44,9 @@ app.use(
 
 app.use(require("./src/middlewares/userControl"));
 
+// Middleware for queryHandler (Search, Filter, Sort, Page)
+app.use(require('./src/middlewares/findSearchSortPage'))
+
 /* ------------------------------------------------------- */
 
 app.all("/", (req, res) => {

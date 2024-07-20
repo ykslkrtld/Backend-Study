@@ -12,7 +12,8 @@ const { BlogCategory, BlogPost } = require("../models/blogModel");
 
 module.exports.blogCategory = {
   list: async (req, res) => {
-    const data = await BlogCategory.find();
+    // const data = await BlogCategory.find();
+    const data = await res.getModelList(BlogCategory)
 
     res.status(200).send({
       error: false,
@@ -112,7 +113,6 @@ module.exports.blogPost = {
 
 
 
-
     // // Pagination
     // // URL?page=3&limit=15
     // // Limit = page size
@@ -131,6 +131,8 @@ module.exports.blogPost = {
     // // const data = await BlogPost.find({...filter, ...search}).skip(skip).sort(sort).limit(limit);
     // const data = await BlogPost.find({...filter, ...search}).skip(skip).sort(sort).limit(limit).populate('categoryId');
 
+
+    const data = await res.getModelList(BlogPost, 'categoryId')
 
     res.status(200).send({
       error: false,

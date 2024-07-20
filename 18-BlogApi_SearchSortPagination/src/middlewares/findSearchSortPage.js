@@ -57,6 +57,8 @@ module.exports = async (req, res, next) => {
 
         return await Model.find({...filter, ...search}).skip(skip).sort(sort).limit(limit).populate(populate);
     }
+
+    next()
 }
 
 
