@@ -17,6 +17,7 @@ module.exports.blogCategory = {
 
     res.status(200).send({
       error: false,
+      details: await res.getModelListDetails(BlogCategory),
       result: data,
     });
   },
@@ -134,8 +135,11 @@ module.exports.blogPost = {
 
     const data = await res.getModelList(BlogPost, 'categoryId')
 
+    
+
     res.status(200).send({
       error: false,
+      details: await res.getModelListDetails(BlogPost),
       result: data,
     });
   },

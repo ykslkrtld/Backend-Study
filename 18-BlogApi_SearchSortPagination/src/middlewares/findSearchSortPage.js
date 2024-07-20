@@ -53,10 +53,40 @@ module.exports = async (req, res, next) => {
     // const data = await BlogPost.find({...filter, ...search}).skip(skip).sort(sort).limit(limit);
     // const data = await BlogPost.find({...filter, ...search}).skip(skip).sort(sort).limit(limit).populate('categoryId');
 
+
+    // getModelList
     res.getModelList = async ( Model, populate = null ) => {
 
         return await Model.find({...filter, ...search}).skip(skip).sort(sort).limit(limit).populate(populate);
     }
+
+    res.getModelListDetails = async ( Model ) => {
+
+        const data = await Model.find({...filter, ...search})
+
+        let details = {
+            filter,
+            search,
+            sort,
+            skip,
+            limit,
+            page,
+            pages: {
+                previous: (page > 1 ? page-1 : false),
+                current: page,
+                next: page + 1,
+                total: Math.ceil(data.length / limit)
+            },
+            totalRecords: data.length
+        }
+
+        // details.pages.next = (details.pages.next > details.pages.total ? false : details.pages.next)
+        if(details.pages.next > details.pages.total) details.pages.next = false
+        if (details.totalRecords <= limit) details.pages = false
+
+        return details
+    }
+
 
     next()
 }
