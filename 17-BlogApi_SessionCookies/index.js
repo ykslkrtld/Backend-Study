@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8000;
 /* ------------------------------------------------------- */
 
 // Accept Json
-app.use(express.json())
+app.use(express.json()) 
 
 // DB Connection
 // const dbConnection = require('./src/dbConnection')
@@ -40,7 +40,7 @@ app.use(session({ // General settings
 
 // Middleware for check user data from session
 
-app.use(require('./src/middlewares/userControl'))
+app.use(require('./src/middlewares/userControl'))  // routerlardan üstte çalışması gerekir
 
 
 
@@ -50,9 +50,9 @@ app.use(require('./src/middlewares/userControl'))
 app.all('/', (req, res) => {
     res.send({
         message: 'Welcome to Blog Api',
-        session: req.session,
+        session: req.session,  // session modelinin oluşturmuş olduğu req.sessiondır. req.session kullanarak session data ekleme, silme, güncelleme vb yapacağız
     })
-})
+})  
 
 /* ------------------------------------------------------- */
 

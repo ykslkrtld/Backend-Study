@@ -33,13 +33,15 @@ module.exports.auth = {
           // });
 
             /* Session */
+
           // req.session = {
           //   email: user.email,
           //   password: user.password
           // }
           // req.session.email = user.email
-          req.session._id = user._id
+          req.session._id = user._id // email gözükmemesi için email yerine random gelen id saklanabilir çalınma ihtimaline karşı mail çalınmasın diye
           req.session.password = user.password
+
             /* Session */
 
 
