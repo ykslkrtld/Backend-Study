@@ -51,6 +51,8 @@ app.all('/', (req, res) => {
     res.send({
         message: 'Welcome to Blog Api',
         session: req.session,  // session modelinin oluşturmuş olduğu req.sessiondır. req.session kullanarak session data ekleme, silme, güncelleme vb yapacağız
+        user: req.user,
+        isLogin: (req.user ? true : false)
     })
 })  
 
