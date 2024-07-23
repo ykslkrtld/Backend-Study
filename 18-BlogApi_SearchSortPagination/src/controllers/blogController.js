@@ -99,10 +99,11 @@ module.exports.blogPost = {
     // // URL?search[fieldName1]=value1&search[fieldName2]=value2
     // const search = req.query?.search || {}
     // console.log(search)
+    // // https://www.mongodb.com/docs/manual/reference/operator/query/regex/
     // for(let key in search)
     //   search[key] = { $regex: search[key] }
     // console.log(search)
-    // // filter searchden performans olarak daha iyi mümkün oldukça search yerine onu kullanmak gerek -- search stringlerde işe yarıyor sadece regexten dolayı ama onda bile mümkünse filter kullanılmalı --- mesela published boolean olduğundan veya regex kullanılamadığından search kullanılamaz
+    // // filter searchden performans olarak daha iyi mümkün oldukça search yerine onu kullanmak gerek -- search stringlerde işe yarıyor sadece regexten dolayı ama onda bile mümkünse filter kullanılmalı --- mesela published boolean olduğundan veya regex kullanılamadığından search kullanılamaz ya da id de search yapmak istesek regex kullanılamaz hatası verir
 
 
 
@@ -135,7 +136,6 @@ module.exports.blogPost = {
 
     const data = await res.getModelList(BlogPost, 'categoryId')
 
-    
 
     res.status(200).send({
       error: false,

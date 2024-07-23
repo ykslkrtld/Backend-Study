@@ -6,8 +6,9 @@
 
 module.exports = async (req, res, next) => {
 
-    // SEARCHING & SORTING & PAGINATION
+    // FILTERING & SEARCHING & SORTING & PAGINATION
 
+    
     // FILTERING:
     // URL?filter[fieldName1]=value1&filter[fieldName2]=value2
     const filter = req.query?.filter || {}
@@ -57,7 +58,7 @@ module.exports = async (req, res, next) => {
     // getModelList
     res.getModelList = async ( Model, populate = null ) => {
 
-        return await Model.find({...filter, ...search}).skip(skip).sort(sort).limit(limit).populate(populate);
+        return await Model.find({...filter, ...search}).sort(sort).skip(skip).limit(limit).populate(populate);
     }
 
     res.getModelListDetails = async ( Model ) => {
