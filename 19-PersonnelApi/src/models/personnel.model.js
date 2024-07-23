@@ -45,6 +45,8 @@ const PersonnelSchema = new mongoose.Schema(
       type: String,
       trim: true,
       required: true,
+      // minlength: 10,
+      // match: /^[0-9]+$/
     },
 
     email: {
@@ -107,6 +109,8 @@ const PersonnelSchema = new mongoose.Schema(
 //     ret.createdAt = ret?.createdAt.toLocaleDateString("tr-tr");
 //   },
 // });
+
+
 
 // function capitalize(str) {
 //   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
