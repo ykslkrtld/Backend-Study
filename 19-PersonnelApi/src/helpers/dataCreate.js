@@ -159,9 +159,10 @@ const Department = require("../models/department.model");
 const { mongoose } = require("../configs/dbConnection");
 
 async function dataCreate() {
-  //   await mongoose.connection.dropDatabase();
+  // await mongoose.connection.dropDatabase();
   await Department.deleteMany();
   await Department.insertMany(departments);
+
   await Personnel.deleteMany();
   let isFirstAccount = (await Personnel.countDocuments()) === 0;
   //   await Personnel.insertMany(personnels);
