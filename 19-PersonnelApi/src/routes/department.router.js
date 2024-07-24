@@ -8,7 +8,9 @@ const router = require("express").Router();
 const department = require("../controllers/department.controller");
 
 /* ------------------------------------------------------- */
-router.route("/").get(department.list).post(department.create);
+router.route("/")
+  .get(department.list)
+  .post(department.create);
 
 router
   .route("/:id")
