@@ -82,6 +82,10 @@ const swaggerJson = require('./swagger.json')
 
 app.use('/documents/swagger', swaggerUi.serve, swaggerUi.setup(swaggerJson, { swaggerOptions: { persistAuthorization: true } }))
 
+// REDOC
+const redoc = require('redoc-express')
+app.use('/documents/redoc', redoc({ specUrl: '/documents/json' }))
+
 /* ------------------------------------------------------- */
 
 // Morgan Logger:
