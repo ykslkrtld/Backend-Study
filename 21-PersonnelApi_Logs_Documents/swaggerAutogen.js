@@ -69,7 +69,8 @@ const document = { // ön tanımlı ayaarlar
         { Token: [] }
     ],
     definitions: {
-
+        "Department": require('./src/models/department.model').schema.obj,
+        "Personnel": require('./src/models/personnel.model').schema.obj
     }
 
 }
