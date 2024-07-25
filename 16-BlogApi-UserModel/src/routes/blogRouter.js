@@ -7,7 +7,6 @@ const router = require('express').Router()
 
 // Call Controllers
 const { blogCategory, blogPost } = require('../controllers/blogController');
-const { BlogCategory } = require('../models/blogModel');
 
 /* ------------------------------------------------------- */
 
