@@ -65,6 +65,11 @@ app.use(morgan('combined', {
   stream: fs.createWriteStream('./access.log', {flags: 'a+'})
 }))
 
+/* ------------------------------------------------------- */
+// Documentation
+// $ npm i swagger-autogen
+// $ npm i swagger-ui-express
+// $ npm i redoc-express
 
 
 
