@@ -38,10 +38,10 @@ app.use(
     //     httpOnly: false,
     //     maxAge: 24 * 60 * 60 * 1000,
     //   }
-  }),
+  })
 );
 
-/* ------------------------------------------------------- */
+/* ------------------------------------------------------- *
 // LOGGER
 // npm i morgan
 // https://expressjs.com/en/resources/middleware/morgan.html
@@ -70,8 +70,11 @@ app.use(morgan('combined', {
 
 /* ------------------------------------------------------- */
 
+// Morgan Logger:
+app.use(require("./src/middlewares/logger"));
+
 // Authentication Middleware:
-app.use(require('./src/middlewares/authentication'))
+app.use(require("./src/middlewares/authentication"));
 
 // res.getModelList():
 app.use(require("./src/middlewares/findSearchSortPage"));
@@ -83,12 +86,12 @@ app.all("/", (req, res) => {
     message: "Welcome to PERSONNEL API",
     // session: req.session,
     // isLogin: req.isLogin,
-    user: req.user
+    user: req.user,
   });
 });
 
 // /auth
-app.use('/auth', require('./src/routes/auth.router'))
+app.use("/auth", require("./src/routes/auth.router"));
 
 // /tokens
 app.use("/tokens", require("./src/routes/token.router"));
@@ -123,4 +126,3 @@ app.listen(PORT, () => console.log("http://127.0.0.1:" + PORT));
 //     .then((res) => console.log("Data synched"))
 //     .catch((err) => console.error("Data could not synched"));
 // }
-
