@@ -41,6 +41,26 @@ app.use(
   }),
 );
 
+/* ------------------------------------------------------- */
+// LOGGER
+// npm i morgan
+// https://expressjs.com/en/resources/middleware/morgan.html
+
+
+const morgan = require('morgan') // log tutan bir middleware
+
+// app.use(morgan('tiny'))
+// app.use(morgan('short'))
+// app.use(morgan('dev'))
+// app.use(morgan('common'))
+app.use(morgan('combined'))
+
+
+
+
+
+/* ------------------------------------------------------- */
+
 // Authentication Middleware:
 app.use(require('./src/middlewares/authentication'))
 
