@@ -65,6 +65,16 @@ app.use(morgan('combined', {
   stream: fs.createWriteStream('./access.log', {flags: 'a+'})
 }))
 
+// Write to File - Day by day:
+const fs = require('node:fs')
+const now = new Date()
+// console.log(now, typeof now)
+const today = now.toISOString().split('T')[0]
+// console.log(today, typeof today)
+app.use(morgan('combined', {
+    stream: fs.createWriteStream(`./logs/${today}.log`, { flags: 'a+' })
+}))
+
 /* ------------------------------------------------------- */
 // Documentation
 // $ npm i swagger-autogen
