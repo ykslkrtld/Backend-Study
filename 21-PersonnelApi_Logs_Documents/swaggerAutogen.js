@@ -68,9 +68,11 @@ const document = { // ön tanımlamalar
     security: [
         { Token: [] }
     ],
+    // Model definition // yeni bir projede sadece definitions değiştirilse yetecek (ufak tefek birkaçşey olabilir örn: packagejson içeriği)
     definitions: {
         "Department": require('./src/models/department.model').schema.obj,
         "Personnel": require('./src/models/personnel.model').schema.obj
+        // Token model gizli modeldir dökümantasyona eklenmez
     }
 
 }

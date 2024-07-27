@@ -83,7 +83,7 @@ app.use(morgan('combined', {
 
 // JSON
 app.use('/documents/json', (req, res) => {
-  res.sendFile('swagger.json', {root: '.'})
+  res.sendFile('swagger.json', {root: '.'}) // dosya içeriğini ekrana basmaya yarar
 } )
 
 // SWAGGER
