@@ -77,9 +77,9 @@ app.use(morgan('combined', {
 
 /* ------------------------------------------------------- */
 // Documentation
-// $ npm i swagger-autogen
-// $ npm i swagger-ui-express
-// $ npm i redoc-express
+// $ npm i swagger-autogen --- JSON dosyası oluşturur -- bir kere çalışacak
+// $ npm i swagger-ui-express --- Json dosyasını swaggerda çalıştıracak
+// $ npm i redoc-express --- Json dosyasını redocda çalıştıracak
 
 // JSON
 app.use('/documents/json', (req, res) => {

@@ -29,21 +29,21 @@ const options = {
 };
 /* ------------------------------------------------------- */
 
-
-const swaggerAutogen = require('swagger-autogen')()
+// const swaggerAutogen = require('swagger-autogen')({ openapi: '3.0.0', language: 'tr-TR' })
+const swaggerAutogen = require('swagger-autogen')() // default ayarlarla çalışır
 
 const packageJson = require('./package.json')
 
-const document = { // ön tanımlı ayaarlar
+const document = { // ön tanımlamalar
     // info: {
     //     version: '1.0.0',
-    //     title: 'Personnel Apii',
+    //     title: 'Personnel Api',
     //     description: 'Personnel Management System API Service v.1',
     //     termOfService: 'http://127.0.0.1:8000/#',
     //     contact: { name: 'Clarusway', email: 'yksl@yksl.com'},
     //     licence: {name: 'Apache Licence'}
         
-    // }
+    // },
     info: {
         version: packageJson.version,
         title: packageJson.name,
@@ -76,7 +76,9 @@ const document = { // ön tanımlı ayaarlar
 }
 
 const routes = ['./index.js'] // hangi routelar getirilecek
-const outputFile = './swagger.json'
+const outputFile = './swagger.json' // ortaya çıkardığı jsonu şu isimli dosyayı oluşturarak işle
 
 // Run
 swaggerAutogen(outputFile, routes, document)
+
+// ayrı bir terminalde node swaggerAutogen.js yapılacak
