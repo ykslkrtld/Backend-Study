@@ -28,6 +28,8 @@ module.exports = {
             }
         */
 
+            // satırların yanlarına ,; vb konulmaz yanına yorum eklenmez
+
         const { username, password } = req.body
 
         if (username && password) {

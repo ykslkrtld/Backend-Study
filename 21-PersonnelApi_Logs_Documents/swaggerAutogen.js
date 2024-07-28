@@ -83,4 +83,5 @@ const outputFile = './swagger.json' // ortaya çıkardığı jsonu şu isimli do
 // Run
 swaggerAutogen(outputFile, routes, document)
 
-// ayrı bir terminalde node swaggerAutogen.js yapılacak
+// ayrı bir terminalde node swaggerAutogen.js yapılacak ve ana dizinde swagger.json (outputFile) oluşturacak
+

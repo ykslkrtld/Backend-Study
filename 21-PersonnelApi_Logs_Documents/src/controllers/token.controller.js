@@ -20,6 +20,8 @@ module.exports = {
 
         */
 
+            // başında # yerine _ yapılınca iptal edilmiş oluyor
+
         const data = await res.getModelList(Token);
 
         res.status(200).send({

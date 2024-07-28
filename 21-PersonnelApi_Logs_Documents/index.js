@@ -90,7 +90,7 @@ app.use('/documents/json', (req, res) => {
 const swaggerUi = require('swagger-ui-express')
 const swaggerJson = require('./swagger.json')
 
-app.use('/documents/swagger', swaggerUi.serve, swaggerUi.setup(swaggerJson, { swaggerOptions: { persistAuthorization: true } }))
+app.use('/documents/swagger', swaggerUi.serve, swaggerUi.setup(swaggerJson, { swaggerOptions: { persistAuthorization: true } })) //setup iki parametre alıyor ilki oluşturduğumuz dosya ikincisi token saklamak için bir değer
 
 // REDOC
 const redoc = require('redoc-express')
