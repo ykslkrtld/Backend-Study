@@ -30,7 +30,7 @@ const PizzaSchema = new mongoose.Schema(
         type: mongoose.Schema.Types.ObjectId,
         ref: "Topping",
       },
-    ],
+    ],  // array ierisnde olması birden fazla topping olmasını sağlar 
   },
   {
     collection: "pizzas",

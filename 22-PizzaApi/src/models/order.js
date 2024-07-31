@@ -52,7 +52,7 @@ const OrderSchema = new mongoose.Schema(
       transform: function () {
         return this.quantity * this.price;
       }, //Update
-    },
+    }, // arrow function kullanılmama sebebi kendi bağlamı olmadığından this in çalışabilmesi için. arrow olsa muhtemel undefined verir
   },
   { collection: "orders", timestamps: true },
 );
