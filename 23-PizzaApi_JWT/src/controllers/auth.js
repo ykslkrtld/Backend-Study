@@ -53,7 +53,7 @@ module.exports = {
 
         /* JWT */
         // ACCESS TOKEN
-        const accessData = {
+        const accessData = { // kısa ömürlü daha özel datalar
             _id: user._id,
             username: user.username,
             email: user.email,
@@ -65,7 +65,7 @@ module.exports = {
         const accessToken = jwt.sign(accessData, process.env.ACCESS_KEY, { expiresIn: '30m' })
 
         // REFRESH TOKEN
-        const refreshData = {
+        const refreshData = { // uzun ömürlü daha özel olmayan datalar
             _id: user._id,
             password: user.password
         }
@@ -104,7 +104,7 @@ module.exports = {
 
         if (refreshToken) {
 
-            const refreshData = await jwt.verify(refreshToken, process.env.REFRESH_KEY)
+            const refreshData = await jwt.verify(refreshToken, process.env.REFRESH_KEY) // jwt.verify hem callback ile hem await ile kullanılabilir. Burada await kulanıldıı için 3. parametre olan callbacke gerek kalmadı (bkz. authentication.js)
             // console.log(refreshData)
 
             if (refreshData) {

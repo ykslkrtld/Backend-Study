@@ -23,7 +23,7 @@ module.exports = async (req, res, next) => {
 
         } else if (tokenKey[0] == "Bearer") { // JWT
 
-            jwt.verify(tokenKey[1], process.env.ACCESS_KEY, function (error, accessData) {
+            jwt.verify(tokenKey[1], process.env.ACCESS_KEY, function (error, accessData) { // jwt.verify hem callback ile hem await ile kullanılabilir
 
                 // console.log(accessData)
                 req.user = accessData ? accessData : null
