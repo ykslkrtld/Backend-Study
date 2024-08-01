@@ -100,12 +100,20 @@ smtp: mail gönderme, diğer ikisi mail alma, pop3 mail kontrol
 
 
 // // GoogleMail (gmail)
-
 // const transporter = nodemailer.createTransport({
 //     service: 'gmail',
 //     auth: {
 //         user: 'yukselkurtuldu9@gmail.com',
 //         pass: 'pfxr qjgh jftk ffzl'
+//     }
+// })
+
+// // YandexMail (yandex)
+// const transporter = nodemailer.createTransport({
+//     service: 'yandex',
+//     auth: {
+//         user: 'test@yandex.com',
+//         pass: '11' // your email-password
 //     }
 // })
 
@@ -123,9 +131,6 @@ smtp: mail gönderme, diğer ikisi mail alma, pop3 mail kontrol
 //     success ? console.log('SUCCESS:', success) : console.log("ERROR:", error)
 
 // })
-
-
-
 
 /* ------------------------------------------------------- */
 
