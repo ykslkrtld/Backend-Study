@@ -50,7 +50,7 @@ app.use(require("./src/middlewares/queryHandler"));
 // nodemailer.com
 // npm install nodemailer
 
-const nodemailer = require('nodemailer')
+// const nodemailer = require('nodemailer')
 
 // Create Test Account
 // nodemailer.createTestAccount().then((data) => console.log(data)) // oluşturduktan sonra yoruma alalım ki sürekli oluşturmasın
@@ -69,18 +69,60 @@ const nodemailer = require('nodemailer')
 smtp: mail gönderme, diğer ikisi mail alma, pop3 mail kontrol  
 */
 
-// Connect to MailServer/SMTP
-const transporter = nodemailer.createTransport({
-  // SMTP:
-  host: 'smtp.ethereal.email',
-  port: '587',
-  secure: false,
-  auth: {
-    user: 'a6cy7swp7xbjtbaj@ethereal.email',
-    pass: 'M7H145VFgeRwx23C2g'
-  }
-})
-console.log(transporter)
+// // Connect to MailServer/SMTP
+// const transporter = nodemailer.createTransport({
+//   // SMTP:
+//   host: 'smtp.ethereal.email',
+//   port: '587',
+//   secure: false,
+//   auth: {
+//     user: 'a6cy7swp7xbjtbaj@ethereal.email',
+//     pass: 'M7H145VFgeRwx23C2g'
+//   }
+// })
+// // console.log(transporter)
+
+// // Send Mail
+// transporter.sendMail({
+
+//   from: 'a6cy7swp7xbjtbaj@ethereal.email',
+//   to: 'yukselkurtuldu9@gmail.com', // ab@de.com, fg@hi.com  araya virgül koyarak biren fazla adrese gönderilebilir
+//   subject: 'Hello',
+//   text: 'Hello there. How are you',
+//   html: '<p> <b> Hello there</b> <br> How are you </p>'
+
+// }, function (error, success) {
+
+//     success ? console.log('SUCCESS:', success) : console.log("ERROR:", error)
+
+// })
+
+
+
+// // GoogleMail (gmail)
+
+// const transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//         user: 'yukselkurtuldu9@gmail.com',
+//         pass: 'pfxr qjgh jftk ffzl'
+//     }
+// })
+
+// Send Mail
+//   transporter.sendMail({
+
+//   from: 'yukselkurtuldu9@gmail.com',
+//   to: 'developerygmh@gmail.com', // ab@de.com, fg@hi.com  araya virgül koyarak biren fazla adrese gönderilebilir
+//   subject: 'Hello',
+//   text: 'Hello there. How are you',
+//   html: '<p> <b> Hello there</b> <br> How are you </p>'
+
+// }, function (error, success) {
+
+//     success ? console.log('SUCCESS:', success) : console.log("ERROR:", error)
+
+// })
 
 
 
