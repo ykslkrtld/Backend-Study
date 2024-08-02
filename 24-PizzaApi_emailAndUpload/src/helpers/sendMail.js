@@ -24,9 +24,13 @@ const transporter = nodemailer.createTransport({
   transporter.sendMail({
 
   from: 'yukselkurtuldu9@gmail.com',
-  to: to, // ab@de.com, fg@hi.com  araya virgül koyarak biren fazla adrese gönderilebilir
+  //   to: 'developerygmh@gmail.com',
+  to: to, 
+  //   subject: 'Hello',
   subject: subject,
+  //   text: 'Hello there. How are you',
   text: message,
+  //   html: '<p> <b> Hello there</b> <br> How are you </p>'
   html: message
 
 }, function (error, success) {

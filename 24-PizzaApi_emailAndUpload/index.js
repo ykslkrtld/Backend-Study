@@ -66,7 +66,7 @@ app.use(require("./src/middlewares/queryHandler"));
   mxEnabled: false
 } 
 
-smtp: mail gönderme, diğer ikisi mail alma, pop3 mail kontrol  
+smtp: mail gönderme, diğer ikisi mail alma, pop3 mail kontrol -- mail alma da daha güncel pop3
 */
 
 // // Connect to MailServer/SMTP
@@ -89,7 +89,7 @@ smtp: mail gönderme, diğer ikisi mail alma, pop3 mail kontrol
 //   to: 'yukselkurtuldu9@gmail.com', // ab@de.com, fg@hi.com  araya virgül koyarak biren fazla adrese gönderilebilir
 //   subject: 'Hello',
 //   text: 'Hello there. How are you',
-//   html: '<p> <b> Hello there</b> <br> How are you </p>'
+//   html: '<p> <b> Hello there</b> <br> How are you </p>' // text, html en az 1 tanesi olacak
 
 // }, function (error, success) {
 
@@ -100,6 +100,7 @@ smtp: mail gönderme, diğer ikisi mail alma, pop3 mail kontrol
 
 
 // // GoogleMail (gmail)
+// // Google -> AccountHome -> Security -> Two-Step-Verify -> App-Passwords
 // const transporter = nodemailer.createTransport({
 //     service: 'gmail',
 //     auth: {

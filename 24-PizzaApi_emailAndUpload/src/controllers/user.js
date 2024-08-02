@@ -66,7 +66,7 @@ module.exports = {
     sendMail(
       data.email,
       'welcome',
-      ` <h1>Welcom</h1>
+      ` <h1>Welcome</h1>
        <h2>${data.username}</h2>
        <p>Welcome to our system</p>
       `
