@@ -154,6 +154,10 @@ app.all("/", (req, res) => {
   });
 });
 
+// Static File
+// app.use('/uploads', express.static('./uploads'))
+app.use('/images', express.static('./uploads'))
+
 /* ------------------------------------------------------- */
 
 // errorHandler:

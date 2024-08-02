@@ -9,23 +9,23 @@ const router = require("express").Router();
 // npm i multer
 // https://expressjs.com/en/resources/middleware/multer.html
 
-const multer = require('multer')
+// const multer = require('multer')
 
-const upload = multer({
-    // dest: './uploads', // yerine storage kullanarak birden fazla ayar yapılabilir. örn isimlendirme
-    storage: multer.diskStorage({
-        destination: './uploads',
-        filename: function (req, file, returnCallback) {
-            // console.log('file', file)
-            // returnCallback(error, fileName)
-            // returnCallback(null, 'yksl.jpg') // istediğin isim
-            // returnCallback(null, file.originalname) // orjinal ismi
-            returnCallback(null, Date.now() + '_' + file.originalname) // aynı isimler karışmaması / dosya üzerine yazmaması için
-        }
-    })
-})
+// const upload = multer({
+//     // dest: './uploads', // yerine storage kullanarak birden fazla ayar yapılabilir. örn isimlendirme
+//     storage: multer.diskStorage({
+//         destination: './uploads',
+//         filename: function (req, file, returnCallback) {
+//             // console.log('file', file)
+//             // returnCallback(error, fileName)
+//             // returnCallback(null, 'yksl.jpg') // istediğin isim
+//             // returnCallback(null, file.originalname) // orjinal ismi
+//             returnCallback(null, Date.now() + '_' + file.originalname) // aynı isimler karışmaması / dosya üzerine yazmaması için
+//         }
+//     })
+// })
 
-// const upload = require('../middlewares/upload')
+const upload = require('../middlewares/upload')
 
 /* ------------------------------------------------------- */
 // routes/pizza:
@@ -39,7 +39,8 @@ router.route("/")
   // .post(upload.single('image'), pizza.create);
   .post(upload.array('image'), pizza.create);
   // .post(upload.any(), pizza.create);
-  // gönderirken image ismi ile gödereceksin daha doğrusu orada belirtilen isim neyse. any ile isim vermeden istenildiği kadar gönderilebilir fakat isim belirleyerek daha güvenli olmasını sağlıyoruz
+  // .post(upload.none(), pizza.create);
+  // gönderirken image ismi ile gödereceksin daha doğrusu orada belirtilen isim neyse. any ile isim vermeden istenildiği kadar gönderilebilir fakat isim belirleyerek daha güvenli olmasını sağlıyoruz. none() ile dosya yüklemesine izin verme
 
   /*
     <form action="/pizzas" method="POST" enctype="mutipart/form-data">
