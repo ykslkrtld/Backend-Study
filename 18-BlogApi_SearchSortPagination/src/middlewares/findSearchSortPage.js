@@ -20,6 +20,7 @@ module.exports = async (req, res, next) => {
     // URL?search[fieldName1]=value1&search[fieldName2]=value2
     const search = req.query?.search || {}
     console.log(search)
+    // https://www.mongodb.com/docs/manual/reference/operator/query/regex/
     for(let key in search)
       search[key] = { $regex: search[key] }
     console.log(search)
