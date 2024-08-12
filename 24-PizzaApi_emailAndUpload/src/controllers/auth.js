@@ -143,8 +143,8 @@ module.exports = {
 
     logout: async (req, res) => {
         /*
-                #swagger.tags = ["Tokens"]
-                #swagger.summary = "Create Token"
+                #swagger.tags = ["Authentication"]
+                #swagger.summary = "Logout"
             */
 
         const auth = req.headers?.authorization; //"Token token"
