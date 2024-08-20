@@ -123,7 +123,7 @@
     $ docker images
     # Image sil:
     $ docker rmi <imagename>
-    $ docker rmi <imagename> -f
+    $ docker rmi <imagename> -f #zorla silme
     # Image'leri sil (kullanılmayanlar):
     $ docker image prune -f -a
     # Image tag ekle/değiştir: (copy/paste yapar)
