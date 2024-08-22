@@ -12,20 +12,23 @@ const PORT = process.env.PORT || 8000;
 /* ------------------------------------------------------- */
 // Accept json data and convert to object:
 app.use(express.json())
+// Accept form data and convert to object:
+app.use(express.urlencoded({ extended: true }))
 
 // AsyncErrors to errorHandler:
 require('express-async-errors')
 
 /* ------------------------------------------------------- */
-// Templates
+// TEMPLATES:
 // $ npm i ejs
 // https://ejs.co/
 
 app.set('view engine', 'ejs')
 // Default template folder: ./views
-// app.set('views', './public')
+app.set('views', './public')
 
-app.all('/', (req,res) => {
+
+app.all('/', (req ,res) => {
 
     // ./views klasörü içindeki dosyayı çağır:
     // res.render('index.ejs')
@@ -38,9 +41,7 @@ app.all('/', (req,res) => {
 })
 
 
-
 /* ------------------------------------------------------- */
-
 // ROUTES:
 
 // Model, controller'da kullanılacağı için orada require edilmelidir.
