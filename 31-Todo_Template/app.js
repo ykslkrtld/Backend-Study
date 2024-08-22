@@ -17,6 +17,28 @@ app.use(express.json())
 require('express-async-errors')
 
 /* ------------------------------------------------------- */
+// Templates
+// $ npm i ejs
+// https://ejs.co/
+
+app.set('view engine', 'ejs')
+
+app.all('/', (req,res) => {
+
+    // ./views klasörü içindeki dosyayı çağır:
+    // res.render('index.ejs')
+    res.render('index')
+    // res.send(`
+    //     <p><a href="/view">Todo Template</a></p>    
+    //     <p><a href="/api">Todo RestAPI</a></p>    
+    // `)
+
+})
+
+
+
+/* ------------------------------------------------------- */
+
 // ROUTES:
 
 // Model, controller'da kullanılacağı için orada require edilmelidir.
